@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "flourishcharts"
-version = "1.0.0.3"
+version = "1.0.0.4"
 dependencies = [ "anywidget", "requests", "pandas"]
 readme = "README.md"
 [[project.authors]]
@@ -51,3 +51,6 @@ dependencies = [ "hatch-jupyter-builder>=0.9.1",]
 [tool.hatch.build.hooks.jupyter-builder.build-kwargs]
 npm = "npm"
 build_cmd = "build"
+
+[tool.hatch.metadata]
+allow-direct-references = true

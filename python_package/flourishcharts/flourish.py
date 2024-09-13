@@ -19,7 +19,7 @@ try:
 except importlib.metadata.PackageNotFoundError:
     __version__ = "unknown"
 
-from . import bindings, details
+from . import bindings, details, save_charts
 from ._utils import load_internal_templates
 
 
@@ -27,6 +27,7 @@ class Flourish(
     anywidget.AnyWidget,
     details.DetailsMixin,
     bindings.DataBindingsMixin,
+    save_charts.SaveChartMixin
 ):
     """Create a Flourish graph.
 
