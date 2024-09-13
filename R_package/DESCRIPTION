@@ -1,6 +1,6 @@
 Package: flourishcharts
 Title: 'Flourish' for 'R' and 'Python'
-Version: 1.0.0.1
+Version: 1.0.0.2
 Authors@R: c(
     person(given = "Zoe",
            family = "Meers",

@@ -32,9 +32,19 @@ function render({ model, el }: RenderContext<WidgetModel>) {
 		opts.metadata = opts.metadata || opts.base_metadata
 	};
 	opts.container = chart
-	flourish_visualisation = new flourishliveApi.Live(opts);
+	var flourish_visualisation = new flourishliveApi.Live(opts);
 	if (opts.base_visualisation_id && !flourish_visualisation.template_loaded){
 	  flourish_visualisation.template_loaded = true
+	}
+	if (opts.state.snapshot) {
+		var snapshot_options = opts.state.snapshot;
+		flourish_visualisation.snapshot(snapshot_options, function (error, data) {
+		  if (error) {
+			  console.error(error);
+			  return;
+		  }
+		  console.log(data.data); // "data:image/jpeg;base64,..."
+		});
 	}
 }
 export default { render }
