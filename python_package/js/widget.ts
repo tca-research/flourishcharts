@@ -36,5 +36,14 @@ function render({ model, el }: RenderContext<WidgetModel>) {
 	if (opts.base_visualisation_id && !flourish_visualisation.template_loaded){
 	  flourish_visualisation.template_loaded = true
 	}
+	if (opts.snapshot.snapshot_flag){
+		var snapshot_options = opts.snapshot.snapshot_metadata
+		var flourish_visualisation.snapshot(snapshot_options, function (error, data) {
+			if (error) {
+				console.error(error);
+				return;
+			}
+		})
+	}
 }
 export default { render }

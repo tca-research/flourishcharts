@@ -19,7 +19,7 @@ try:
 except importlib.metadata.PackageNotFoundError:
     __version__ = "unknown"
 
-from . import bindings, details
+from . import bindings, details, snapshot
 from ._utils import load_internal_templates
 
 
@@ -27,6 +27,7 @@ class Flourish(
     anywidget.AnyWidget,
     details.DetailsMixin,
     bindings.DataBindingsMixin,
+    snapshot.SnapshotMixin
 ):
     """Create a Flourish graph.
 
@@ -161,7 +162,9 @@ class Flourish(
                 "width": self.width,
                 "height": self.height,
                 "base_visualisation_data_format": "object",
-                "snapshot_flag": False
+                "snapshot":{
+                    "snapshot_flag": False
+                }
             }
         if base_visualisation_id is None:
             self._model_data = {
@@ -174,7 +177,9 @@ class Flourish(
                 "api_key": self.api_key,
                 "width": self.width,
                 "height": self.height,
-                "snapshot_flag": False
+                "snapshot":{
+                    "snapshot_flag": False
+                }
             }
 
     def __repr__(self):
