@@ -104,9 +104,9 @@ class Flourish(
                 self.template_version = matched_template["template_version"]
                 if matched_template["template_id"] == "@flourish/hierarchy":
                     self.state = {"hierarchy_layout": chart_type}
-                    if chart_type = "radialtree":
+                    if self.chart_type == "radialtree":
                         self.state = {"hierarchy_layout": 'radialTree'}
-                    if chart_type = "circlepacking":
+                    if selfchart_type == "circlepacking":
                         self.state = {"hierarchy_layout": 'circlePacking'}
                 if matched_template["template_id"] == "@flourish/line-bar-pie":
                     self.state = {"chart_type": chart_type}
