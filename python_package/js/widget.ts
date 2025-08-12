@@ -16,11 +16,11 @@ function render({ model, el }: RenderContext<WidgetModel>) {
 	el.appendChild(chart);
 	let opts = model.get("_model_data");
 	if (opts.template == '@flourish/hierarchy') {
-		if (opts.hierarchy_layout == 'circlepacking'){
-			opts.hierarchy_layout = 'circlePacking'
+		if (opts.state.hierarchy_layout == 'circlepacking'){
+			opts.state.hierarchy_layout = 'circlePacking'
 		}
-		if (ops.hierarchy_layout == 'radialtree'){
-			opts.hierarchy_layout = 'radialTree'
+		if (ops.state.hierarchy_layout == 'radialtree'){
+			opts.state.hierarchy_layout = 'radialTree'
 		}
 	}
 	if (opts.base_visualisation_id) {
