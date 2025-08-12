@@ -17,10 +17,10 @@ function render({ model, el }: RenderContext<WidgetModel>) {
 	let opts = model.get("_model_data");
 	if (opts.template_id == '@flourish/hierarchy') {
 		if (opts.chart_type == 'circlepacking'){
-			opts.chart_type = 'circlePacking'
+			opts.hierarchy_layout = 'circlePacking'
 		}
 		if (ops.chart_type == 'radialtree'){
-			opts.chart_type = 'radialTree'
+			opts.hierarchy_layout = 'radialTree'
 		}
 	}
 	if (opts.base_visualisation_id) {
