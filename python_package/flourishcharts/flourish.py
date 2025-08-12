@@ -103,13 +103,17 @@ class Flourish(
                 self.template_id = matched_template["template_id"]
                 self.template_version = matched_template["template_version"]
                 if matched_template["template_id"] == "@flourish/hierarchy":
-                    self.state = {"hierarchy_layout": chart_type}
                     if self.chart_type == "radialtree":
-                        self.state = {"hierarchy_layout": 'radialTree'}
-                    if self.chart_type == "circlepacking":
-                        self.state = {"hierarchy_layout": 'circlePacking'}
-                if matched_template["template_id"] == "@flourish/line-bar-pie":
+                        layout = "radialTree"
+                    elif self.chart_type == "circlepacking":
+                        layout = "circlePacking"
+                    else:
+                        layout = chart_type  # fallback to original value
+                    self.state = {"hierarchy_layout": layout}
+                
+                elif matched_template["template_id"] == "@flourish/line-bar-pie":
                     self.state = {"chart_type": chart_type}
+
 
         if base_visualisation_id is not None:
             base_viz_object = f"https://public.flourish.studio/visualisation/{base_visualisation_id}/visualisation-object.json"
