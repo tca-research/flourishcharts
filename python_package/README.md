@@ -7,7 +7,7 @@ The package relies on an enterprise API provided by Flourish.
 
 ## Installation
 
-You can install to a specific virtual env by using `pipenv`:
+You can install to a specific virtual env by using `pipenv` (note that this will install the version from `canva-public`:
 
 ```bash
 pipenv install flourishcharts
@@ -19,12 +19,12 @@ or to your global Python installation with `pip`:
 python3 -m pip install --upgrade flourishcharts
 ```
 
-## Development Installation
+## Development Installation (from `tca-research` not `canva-public`)
 
 Create a dev environment:
 
 ```bash
-pipenv install --dev -e "git+ssh://git@github.com/Canva-public/flourishcharts@main#egg=flourishcharts&subdirectory=python_package"
+pipenv install --dev -e "git+ssh://git@github.com/tca-research/flourishcharts@main#egg=flourishcharts&subdirectory=python_package"
 ```
 
 Set up the env variables (like API keys). Copy-paste the .envrc-demo file, adding your own API keys which can be accessed from your Flourish profile account.
