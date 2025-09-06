@@ -1,7 +1,7 @@
 import type { RenderContext } from "@anywidget/types";
 import "./widget.css";
 
-import flourishliveApi from 'https://cdn.jsdelivr.net/npm/@flourish/live-api@5.1.0/+esm'
+import flourishliveApi from 'https://cdn.jsdelivr.net/npm/@flourish/live-api@5.4.2/+esm'
 
 interface WidgetModel {
 	_model_data: {
@@ -15,6 +15,14 @@ function render({ model, el }: RenderContext<WidgetModel>) {
 	chart.id = "chart";
 	el.appendChild(chart);
 	let opts = model.get("_model_data");
+	if (opts.template_id == '@flourish/hierarchy') {
+		if (opts.chart_type == 'circlepacking'){
+			opts.chart_type = 'circlePacking'
+		}
+		if (ops.chart_type == 'radialtree'){
+			opts.chart_type = 'radialTree'
+		}
+	}
 	if (opts.base_visualisation_id) {
 		// base_visualisation_data_format can now be an array of arrays or array of objects as v5.0.2 of the API.
 		opts.base_visualisation_id = String(opts.base_visualisation_id)
