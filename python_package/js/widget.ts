@@ -40,7 +40,7 @@ function render({ model, el }: RenderContext<WidgetModel>) {
 		opts.metadata = opts.metadata || opts.base_metadata
 	};
 	opts.container = chart
-	flourish_visualisation = new flourishliveApi.Live(opts);
+	var flourish_visualisation = new flourishliveApi.Live(opts);
 	if (opts.base_visualisation_id && !flourish_visualisation.template_loaded){
 	  flourish_visualisation.template_loaded = true
 	}

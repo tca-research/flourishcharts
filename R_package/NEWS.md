@@ -1,3 +1,7 @@
+##  R pkg v1.5.4.5, Python pkg  v1.5.4.5
+
+Add support for taking snapshot images on Flourish charts.
+
 ## 2025-08-29: R pkg v1.5.3.5, Python pkg v1.5.3.5
 
 The following templates have been added or updated:
@@ -125,6 +129,7 @@ The following templates have been added or updated:
 | @flourish/word-cloud             | 3.10.1        | 4.1.0         | update   | `[bind/set]_word_cloud_[data/details]`       |
 
 ## 2024-08-23: R pkg v1.0.0.0, Python pkg v1.0.0.0
+
 The package has been renamed to `flourishcharts` and package versions reset to v1.0.0.0. 
 
 ## 2024-08-22: R pkg v1.9.17.13, Python pkg v1.9.13.15
