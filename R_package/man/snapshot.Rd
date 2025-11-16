@@ -7,7 +7,7 @@
 snapshot(
   .,
   format = "png",
-  filename = "Flourish API Image.png",
+  filename = "Flourish API Image",
   download = TRUE,
   scale = 1
 )
@@ -19,7 +19,7 @@ snapshot(
 
 \item{filename}{Optional - If chart is downloaded to local machine, you may specify the filename. If not provided, will default to "Flourish API Image.png".}
 
-\item{download}{Mandatory - Whether the template is downloaded to local machine or the image data will be passed in the callback as a data URL with base64-encoded data. his makes it easy to use that data as, say, the \code{src} attribute of an \verb{<img>} tag. Defaults to \code{TRUE}.}
+\item{download}{Mandatory - Whether the template is downloaded to local machine or the image data will be passed in the callback as a data URL with base64-encoded data. If \code{FALSE}, copy the base-64 encoded string from the chart console log. This makes it easy to use that data as, say, the \code{src} attribute of an \verb{<img>} tag. Defaults to \code{TRUE}.}
 
 \item{scale}{Optional - You can supply a scale parameter (default: 1) to increase the resolution of the generated image.}
 }
