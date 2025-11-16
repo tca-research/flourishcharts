@@ -1,3 +1,7 @@
+## 2024-08-23: R pkg v1.0.0.2, Python pkg v1.0.0.4
+
+Add support for taking snapshots of charts in `flourishcharts`.
+
 ## 2024-08-23: R pkg v1.0.0.0, Python pkg v1.0.0.0
 
 The package has been renamed to `flourishcharts` and package versions reset to v1.0.0.0. 
