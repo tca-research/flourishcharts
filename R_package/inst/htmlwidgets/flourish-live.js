@@ -97,7 +97,6 @@ HTMLWidgets.widget({
           addAnalyticsListener: addAnalyticsListener,
           sendCustomerAnalyticsMessage: sendCustomerAnalyticsMessage
         };
-        // comment out the following line to disable the rstudio hack
         window.embedding = embedding;
         // set the default html widget container height to 0.
         var container_div_id = opts.container.substring(1);
@@ -105,6 +104,16 @@ HTMLWidgets.widget({
         flourish_visualisation = new Fleet(opts);
         if (x.base_visualisation_id && !flourish_visualisation.template_loaded){
           flourish_visualisation.template_loaded = true
+        };
+        if (x.state.snapshot) {
+          var snapshot_options = x.state.snapshot;
+          flourish_visualisation.snapshot(snapshot_options, function (error, data) {
+            if (error) {
+                console.error(error);
+                return;
+            }
+            console.log(data.data); // "data:image/jpeg;base64,..."
+          });
         }
       },
       resize: function (width, height) {

@@ -1,7 +1,7 @@
 import type { RenderContext } from "@anywidget/types";
 import "./widget.css";
 
-import flourishliveApi from 'https://cdn.jsdelivr.net/npm/@flourish/live-api@5.1.0/+esm'
+import flourishliveApi from 'https://cdn.jsdelivr.net/npm/@flourish/live-api@5.4.2/+esm'
 
 interface WidgetModel {
 	_model_data: {
@@ -19,7 +19,7 @@ function render({ model, el }: RenderContext<WidgetModel>) {
 		if (opts.state.hierarchy_layout == 'circlepacking'){
 			opts.state.hierarchy_layout = 'circlePacking'
 		}
-		if (ops.state.hierarchy_layout == 'radialtree'){
+		if (opts.state.hierarchy_layout == 'radialtree'){
 			opts.state.hierarchy_layout = 'radialTree'
 		}
 	}
@@ -40,7 +40,7 @@ function render({ model, el }: RenderContext<WidgetModel>) {
 		opts.metadata = opts.metadata || opts.base_metadata
 	};
 	opts.container = chart
-	flourish_visualisation = new flourishliveApi.Live(opts);
+	var flourish_visualisation = new flourishliveApi.Live(opts);
 	if (opts.base_visualisation_id && !flourish_visualisation.template_loaded){
 	  flourish_visualisation.template_loaded = true
 	}
