@@ -97,12 +97,11 @@ HTMLWidgets.widget({
           addAnalyticsListener: addAnalyticsListener,
           sendCustomerAnalyticsMessage: sendCustomerAnalyticsMessage
         };
-        // comment out the following line to disable the rstudio hack
         window.embedding = embedding;
         // set the default html widget container height to 0.
         var container_div_id = opts.container.substring(1);
         document.getElementById(container_div_id).style.height = "0px";
-        var flourish_visualisation = new Fleet(opts);
+        flourish_visualisation = new Fleet(opts);
         if (x.base_visualisation_id && !flourish_visualisation.template_loaded){
           flourish_visualisation.template_loaded = true
         };
