@@ -44,17 +44,6 @@ function render({ model, el }: RenderContext<WidgetModel>) {
 	if (opts.base_visualisation_id && !flourish_visualisation.template_loaded){
 	  flourish_visualisation.template_loaded = true
 	}
-<<<<<<< HEAD
-	if (opts.state.snapshot) {
-		var snapshot_options = opts.state.snapshot;
-		flourish_visualisation.snapshot(snapshot_options, function (error, data) {
-		  if (error) {
-			  console.error(error);
-			  return;
-		  }
-		  console.log(data.data); // "data:image/jpeg;base64,..."
-		});
-=======
 	if (opts.snapshot.snapshot_flag){
 		var snapshot_options = opts.snapshot.snapshot_metadata
 		var flourish_visualisation.snapshot(snapshot_options, function (error, data) {
@@ -63,7 +52,6 @@ function render({ model, el }: RenderContext<WidgetModel>) {
 				return;
 			}
 		})
->>>>>>> dcf984520d2272e58711dce7b67687e36f65bd61
 	}
 }
 export default { render }
