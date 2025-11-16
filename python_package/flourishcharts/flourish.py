@@ -19,7 +19,11 @@ try:
 except importlib.metadata.PackageNotFoundError:
     __version__ = "unknown"
 
+<<<<<<< HEAD
 from . import bindings, details, save_charts
+=======
+from . import bindings, details, snapshot
+>>>>>>> dcf984520d2272e58711dce7b67687e36f65bd61
 from ._utils import load_internal_templates
 
 
@@ -27,7 +31,11 @@ class Flourish(
     anywidget.AnyWidget,
     details.DetailsMixin,
     bindings.DataBindingsMixin,
+<<<<<<< HEAD
     save_charts.SaveChartMixin
+=======
+    snapshot.SnapshotMixin
+>>>>>>> dcf984520d2272e58711dce7b67687e36f65bd61
 ):
     """Create a Flourish graph.
 
@@ -103,9 +111,17 @@ class Flourish(
                 self.template_id = matched_template["template_id"]
                 self.template_version = matched_template["template_version"]
                 if matched_template["template_id"] == "@flourish/hierarchy":
-                    self.state = {"hierarchy_layout": chart_type}
-                if matched_template["template_id"] == "@flourish/line-bar-pie":
+                    if self.chart_type == "radialtree":
+                        layout = "radialTree"
+                    elif self.chart_type == "circlepacking":
+                        layout = "circlePacking"
+                    else:
+                        layout = chart_type  # fallback to original value
+                    self.state = {"hierarchy_layout": layout}
+                
+                elif matched_template["template_id"] == "@flourish/line-bar-pie":
                     self.state = {"chart_type": chart_type}
+
 
         if base_visualisation_id is not None:
             base_viz_object = f"https://public.flourish.studio/visualisation/{base_visualisation_id}/visualisation-object.json"
@@ -161,7 +177,10 @@ class Flourish(
                 "api_key": self.api_key,
                 "width": self.width,
                 "height": self.height,
-                "base_visualisation_data_format": "object"
+                "base_visualisation_data_format": "object",
+                "snapshot":{
+                    "snapshot_flag": False
+                }
             }
         if base_visualisation_id is None:
             self._model_data = {
@@ -173,7 +192,10 @@ class Flourish(
                 "version": self.template_version,
                 "api_key": self.api_key,
                 "width": self.width,
-                "height": self.height
+                "height": self.height,
+                "snapshot":{
+                    "snapshot_flag": False
+                }
             }
 
     def __repr__(self):
